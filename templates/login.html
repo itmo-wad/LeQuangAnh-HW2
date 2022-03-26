@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <html lang="en">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/hw2.css') }}">
+</head>
+<body>
+    {% extends "layout.html" %}
+    {% block body %}
+    <h1>Login</h1>
+    {% if error %}
+        <p class=error><strong>Error:</strong> {{ error }}
+    {% endif %}
+    <form method="post">
+        {% if error %}
+        <p class=error><strong>Error:</strong> {{ error }}
+        {% endif %}
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" placeholder="Username" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" placeholder="Password" name="password"><br>
+        <input type="submit" value="Login">
+    </form>
+    <a href="{{ url_for('index') }}">Home</a> <br></br>
+    <a href="{{ url_for('signup') }}">Signup</a> <br></br>
+    <a href="{{ url_for('profile') }}">Proflie</a> <br></br>
+    {% endblock %}
+</body>
